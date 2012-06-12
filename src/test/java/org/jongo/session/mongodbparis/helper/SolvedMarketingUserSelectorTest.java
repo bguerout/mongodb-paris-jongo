@@ -16,12 +16,12 @@ public class SolvedMarketingUserSelectorTest {
     @Before
     public void setUp() throws Exception {
         Mongo mongo = new Mongo("127.0.0.1", 27017);
-        db = mongo.getDB("jongo-session");
+        db = mongo.getDB("mongodb-paris");
     }
 
     @Test
-    //{ $or : [ { age : {$gt:20,$lt:30} } , { age : {$gt:50,$lt:60} } ] }
-    public void canFindUserJohnInParis() throws Exception {
+    //{ $or : [ { age : {$gte:20,$lte:30} } , { age : {$gte:50,$lte:60} } ] }
+    public void usingJavaDriver() throws Exception {
 
         DBCollection users = db.getCollection("users");
 
@@ -46,7 +46,7 @@ public class SolvedMarketingUserSelectorTest {
 
     @Test
     //{ $or : [ { age : {$gt:20,$lt:30} } , { age : {$gt:50,$lt:60} } ] }
-    public void canFindUserWithJongo() throws Exception {
+    public void usingJongo() throws Exception {
 
         Jongo jongo = new Jongo(db);
         MongoCollection collection = jongo.getCollection("users");

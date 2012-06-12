@@ -1,18 +1,19 @@
 package org.jongo.session.mongodbparis;
 
+import org.codehaus.jackson.annotate.JsonCreator;
+import org.codehaus.jackson.annotate.JsonProperty;
+
 public class Address {
 
     private String way;
     private String city;
     private String country;
 
-    public Address(String way, String city, String country) {
+    @JsonCreator
+    public Address(@JsonProperty("way") String way, @JsonProperty("city") String city, @JsonProperty("country") String country) {
         this.way = way;
         this.city = city;
         this.country = country;
-    }
-
-    public Address() {
     }
 
     public String getCity() {
@@ -27,15 +28,12 @@ public class Address {
         return way;
     }
 
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public void setWay(String way) {
-        this.way = way;
+    @Override
+    public String toString() {
+        return "Address{" +
+                "way='" + way + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

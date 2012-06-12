@@ -10,14 +10,14 @@ import org.junit.Test;
 
 import static org.fest.assertions.Assertions.assertThat;
 
-public class SaveUser {
+public class DataInjector {
 
     private DB db;
 
     @Before
     public void setUp() throws Exception {
         Mongo mongo = new Mongo("127.0.0.1", 27017);
-        db = mongo.getDB("jongo-session");
+        db = mongo.getDB("marketing");
         db.dropDatabase();
 
     }
