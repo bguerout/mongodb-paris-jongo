@@ -19,7 +19,6 @@ public class DataInjector {
         Mongo mongo = new Mongo("127.0.0.1", 27017);
         db = mongo.getDB("marketing");
         db.dropDatabase();
-
     }
 
     @Test
@@ -32,6 +31,7 @@ public class DataInjector {
         DBObject dbObject = new BasicDBObject();
         dbObject.put("username", user.getUsername());
         dbObject.put("age", user.getAge());
+
 
         //Creating a DBObject for address
         Address address = user.getAddress();

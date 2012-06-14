@@ -16,7 +16,7 @@ public class SolvedMarketingUserSelectorTest {
     @Before
     public void setUp() throws Exception {
         Mongo mongo = new Mongo("127.0.0.1", 27017);
-        db = mongo.getDB("mongodb-paris");
+        db = mongo.getDB("marketing");
     }
 
     @Test
@@ -59,4 +59,17 @@ public class SolvedMarketingUserSelectorTest {
             System.out.println("You can send an email to " + user.getUsername());
         }
     }
+
+    @Test
+    public void trackSentEmails() throws Exception {
+        Jongo jongo = new Jongo(db);
+        MongoCollection collection = jongo.getCollection("users");
+
+        collection.update("{ $or : [ { age :{$gte : 20, $lte:30} } , { age : {$gte:50,$lte:60} } ] }", "{$inc:{sentEmails:1}}");
+
+        long count = collection.count("{sentEmails:{$exists:true}}");
+
+        assertThat(count).isEqualTo(2);
+    }
+
 }
