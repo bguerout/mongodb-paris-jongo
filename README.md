@@ -16,7 +16,17 @@ Kata to present Jongo at MongoDB Paris and Paris JUG
 
 - Import project into IntelliJ
 
+- Configure IntelliJ as follow :
+```sh
+Go to 'Preferences>Editor>Colors ans Fonts>Font'
+Create a new schema (eg. presentation) with values :
+Name : Melo
+Size : 17
+Line spacing : 1.0
+```
+
 Usefull links: 
+--------------
 
 http://www.mongodb.org/display/DOCS/Advanced+Queries
 
