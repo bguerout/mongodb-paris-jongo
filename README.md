@@ -8,9 +8,11 @@ Kata to present Jongo at MongoDB Paris and Paris JUG
 - Start it
 
 - Clone this repository and run maven command: 
+```sh
    git clone git://github.com/bguerout/mongodb-paris-jongo.git
    cd mongodb-paris-jongo
-   mvn clean install
+   mvn clean install #tests inject data into MongoDB server
+```
 
 - Import project into IntelliJ
 
