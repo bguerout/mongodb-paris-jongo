@@ -1,13 +1,14 @@
 package org.jongo.session.mongodbparis.helper;
 
 import com.mongodb.*;
+import org.fest.assertions.api.Assertions;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 import org.jongo.session.mongodbparis.User;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class SolvedMarketingUserSelectorTest {
 
@@ -65,7 +66,7 @@ public class SolvedMarketingUserSelectorTest {
         Jongo jongo = new Jongo(db);
         MongoCollection collection = jongo.getCollection("users");
 
-        collection.update("{ $or : [ { age :{$gte : 20, $lte:30} } , { age : {$gte:50,$lte:60} } ] }", "{$inc:{sentEmails:1}}");
+        collection.update("{ $or : [ { age :{$gte : 20, $lte:30} } , { age : {$gte:50,$lte:60} } ] }").with("{$inc:{sentEmails:1}}");
 
         long count = collection.count("{sentEmails:{$exists:true}}");
 

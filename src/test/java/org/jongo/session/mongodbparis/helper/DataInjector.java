@@ -1,6 +1,7 @@
 package org.jongo.session.mongodbparis.helper;
 
 import com.mongodb.*;
+import org.fest.assertions.api.Assertions;
 import org.jongo.Jongo;
 import org.jongo.MongoCollection;
 import org.jongo.session.mongodbparis.Address;
@@ -8,7 +9,7 @@ import org.jongo.session.mongodbparis.User;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.fest.assertions.api.Assertions.assertThat;
 
 public class DataInjector {
 
