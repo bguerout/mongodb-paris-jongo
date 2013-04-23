@@ -66,7 +66,9 @@ public class SolvedMarketingUserSelectorTest {
         Jongo jongo = new Jongo(db);
         MongoCollection collection = jongo.getCollection("users");
 
-        collection.update("{ $or : [ { age :{$gte : 20, $lte:30} } , { age : {$gte:50,$lte:60} } ] }").with("{$inc:{sentEmails:1}}");
+        collection.update("{ $or : [ { age :{$gte : 20, $lte:30} } , { age : {$gte:50,$lte:60} } ] }")
+                .multi()
+                .with("{$inc:{sentEmails:1}}");
 
         long count = collection.count("{sentEmails:{$exists:true}}");
 
